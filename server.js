@@ -39,8 +39,7 @@ app.use(express.json()); // Parses JSON data
 
 // PostgreSQL
 // Load environment variables from .env file using ES modules syntax
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 import pg from 'pg';
 const { Client } = pg;
