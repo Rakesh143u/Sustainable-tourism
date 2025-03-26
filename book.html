@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Eco-Stay</title>
+  <style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/bakground.webp') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  header {
+    background: #008060;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-body h3 {
+    margin: 0 0 0.5rem;
+  }
+  
+  .form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .form-container label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+  }
+  
+  .form-container input,
+  .form-container textarea {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-container button {
+    background-color: #008060;
+    color: white;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  /* From Uiverse.io by vinodjangid07 */ 
+  .nav-button {
+    width: 110px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: rgb(161, 255, 20);
+    border-radius: 30px;
+    color: rgb(19, 19, 19);
+    font-weight: 600;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    transition-duration: .2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+    padding-left: 8px;
+    transition-duration: .5s;
+  }
+  
+  .svgIcon {
+    height: 25px;
+    transition-duration: 1.5s;
+  }
+  
+  .nov-bell path {
+    fill: rgb(19, 19, 19);
+  }
+  
+  .nov-button:hover {
+    background-color: rgb(192, 255, 20);
+    transition-duration: .5s;
+  }
+  
+  .nov-button:active {
+    transform: scale(0.97);
+    transition-duration: .2s;
+  }
+  
+  .nov-button:hover .svgIcon {
+    transform: rotate(250deg);
+    transition-duration: 1.5s;
+  }
+  
+  /* From Uiverse.io by Smit-Prajapati */ 
+  .container {
+    max-width: 400px; /* Slightly wider */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85); /* subtle transparency */
+    border-radius: 30px;
+    padding: 30px 40px;
+    box-shadow: rgba(133, 189, 215, 0.9) 0px 30px 30px -20px;
+    border: 3px solid white;
+    backdrop-filter: blur(8px); /* optional glassy effect */
+  }
+  
+  .heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(16, 137, 211);
+  }
+  
+  .form {
+    margin-top: 20px;
+  }
+  
+  .form .input {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    padding-left: 30px; /* Increase as needed to shift text inside */
+    margin-left: -10px; 
+    padding-right: 0px;
+    margin-right: 10px;
+    box-shadow: #cff0ff 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+  }
+  
+  .form .input::-moz-placeholder {
+    color: rgb(170, 170, 170);
+  }
+  
+  .form .input::placeholder {
+    color: rgb(170, 170, 170);
+  }
+  
+  .form .input:focus {
+    outline: none;
+    border-inline: 2px solid #12B1D1;
+  }
+  
+  
+  .form .forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  .form .forgot-password a {
+    font-size: 11px;
+    color: #0099ff;
+    text-decoration: none;
+  }
+  
+  .form .login-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+    color: white;
+    padding-block: 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .form .login-button:hover {
+    transform: scale(1.03);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+  }
+  
+  .form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+  }
+  
+  .social-account-container {
+    margin-top: 25px;
+  }
+  
+  .social-account-container .title {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(170, 170, 170);
+  }
+  
+  .social-account-container .social-accounts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+  }
+  
+  .social-account-container .social-accounts .social-button {
+    background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+    border: 5px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .social-account-container .social-accounts .social-button .svg {
+    fill: white;
+    margin: auto;
+  }
+  
+  .social-account-container .social-accounts .social-button:hover {
+    transform: scale(1.2);
+  }
+  
+  .social-account-container .social-accounts .social-button:active {
+    transform: scale(0.9);
+  }
+  
+  .agreement {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .agreement a {
+    text-decoration: none;
+    color: #0099ff;
+    font-size: 9px;
+  }
+  /* Center the login box on the screen */
+  .page-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/bg-img') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  
+  </style>
+  
+</head>
+<body>
+  <header>
+    <h1>Book This Stay</h1>
+  </header>
+
+  <main>
+    <form id="bookForm" class="form-container">
+      <label>Your Name: <input name="name" required /></label>
+      <label>Dates: <input name="dates" required /></label>
+      <button type="submit">Confirm Booking</button>
+    </form>
+    <p id="bookMessage"></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EcoStay</p>
+  </footer>
+  <script  src="js/book.js" r></script>
+</body>
+</html>

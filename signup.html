@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Sustainable Tourism</title>
+  <style>/* From Uiverse.io by Smit-Prajapati */ 
+body {
+    margin: 0;
+    padding: 0;
+    background: url('/bg-img') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+.container {
+    max-width: 400px; /* Slightly wider */
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85); /* subtle transparency */
+  border-radius: 30px;
+  padding: 30px 40px;
+  box-shadow: rgba(133, 189, 215, 0.9) 0px 30px 30px -20px;
+  border: 3px solid white;
+  backdrop-filter: blur(8px); /* optional glassy effect */
+  }
+  
+  .heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(16, 137, 211);
+  }
+  
+  .form {
+    margin-top: 20px;
+  }
+  
+  .form .input {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    padding-left: 30px; /* Increase as needed to shift text inside */
+    margin-left: -10px; 
+    padding-right: 0px;
+    margin-right: 10px;
+    box-shadow: #cff0ff 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+  }
+  
+  .form .input::-moz-placeholder {
+    color: rgb(170, 170, 170);
+  }
+  
+  .form .input::placeholder {
+    color: rgb(170, 170, 170);
+  }
+  
+  .form .input:focus {
+    outline: none;
+    border-inline: 2px solid #12B1D1;
+  }
+  
+  
+  .form .forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  .form .forgot-password a {
+    font-size: 11px;
+    color: #0099ff;
+    text-decoration: none;
+  }
+  
+  .form .login-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+    color: white;
+    padding-block: 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .form .login-button:hover {
+    transform: scale(1.03);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+  }
+  
+  .form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+  }
+  
+  .social-account-container {
+    margin-top: 25px;
+  }
+  
+  .social-account-container .title {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(170, 170, 170);
+  }
+  
+  .social-account-container .social-accounts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+  }
+  
+  .social-account-container .social-accounts .social-button {
+    background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+    border: 5px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .social-account-container .social-accounts .social-button .svg {
+    fill: white;
+    margin: auto;
+  }
+  
+  .social-account-container .social-accounts .social-button:hover {
+    transform: scale(1.2);
+  }
+  
+  .social-account-container .social-accounts .social-button:active {
+    transform: scale(0.9);
+  }
+  
+  .agreement {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .agreement a {
+    text-decoration: none;
+    color: #0099ff;
+    font-size: 9px;
+  }
+  /* Center the login box on the screen */
+  .page-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/bg-img') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  
+  </style>
+</head>
+<body>
+
+  <div class="page-center">
+    <div class="container">
+      <div class="heading">Sign Up</div>
+
+      <form id="signup-form" class="form" action="/signup" method="post">
+        <input class="input" type="text" name="name" placeholder="Full Name" required />
+        <input class="input" type="email" name="email" placeholder="Email" required />
+        <input class="input" type="tel" name="mobile" placeholder="Mobile Number" required pattern="[0-9]{10}" />
+        <input class="input" type="password" name="password" placeholder="Password" required />
+
+        <button type="submit" class="login-button">Sign Up</button>
+      </form>
+
+      <div class="social-account-container">
+        <span class="title">Or sign up with</span>
+        <div class="social-accounts">
+          <button type="button" class="social-button">
+           
+          <svg class="svg" viewBox="0 0 48 48" width="24" height="24">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.07 1.53 7.47 2.81l5.52-5.52C33.73 3.98 29.27 2 24 2 14.92 2 7.3 7.74 4.28 15.09l6.89 5.35C12.46 14.37 17.76 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.1 24.5c0-1.67-.14-2.91-.44-4.18H24v7.9h12.47c-.51 2.7-2.4 6.3-6.9 8.8l-.06.39 7.9 6.13.55.06C42.93 39.5 46.1 32.93 46.1 24.5z"/>
+          
+          
+          <!-- Insert SVG icon here -->
+          
+        </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="agreement">
+        <a href="/login">Already have an account? Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional: Firebase Signup JS -->
+  <script src="js/auth.js"></script>
+</body>
+</html>
