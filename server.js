@@ -41,7 +41,7 @@ app.use(express.json()); // Parses JSON data
 // Load environment variables from .env file using ES modules syntax
 
 
-import pg from 'pg';
+
 const { Client } = pg;
 // Check if DATABASE_URL is defined; if not, log a warning.
 if (!process.env.DATABASE_URL) {
