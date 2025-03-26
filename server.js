@@ -263,6 +263,11 @@ app.get("/api/products", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+// Default route: serve the index page.
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+app.get("/favicon.ico", (req, res) => res.status(204).end());
 // Start server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
@@ -277,3 +282,4 @@ app.listen(port, () => {
 //     res.status(500).send("Server error");
 //   }
 // });
+// Default route: serve the index page.
