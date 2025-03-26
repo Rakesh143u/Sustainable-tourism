@@ -12,7 +12,7 @@ import dotenv from "dotenv";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port = 3000;
+const port = 8080;
 
 dotenv.config();
 
@@ -42,15 +42,20 @@ app.use(express.json()); // Parses JSON data
 import dotenv from 'dotenv';
 dotenv.config();
 
-import pkg from 'pg';
-const { Client } = pkg;
-
+import pg from 'pg';
+const { Client } = pg;
+// Check if DATABASE_URL is defined; if not, log a warning.
+if (!process.env.DATABASE_URL) {
+  console.error(
+    "DATABASE_URL is undefined. Please set this variable in your Railway project settings."
+  );
+}
 const db = new Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL,
+  ssl:
+    process.env.NODE_ENV === "production"
+      ? { rejectUnauthorized: false }
+      : false,
 });
 
 
