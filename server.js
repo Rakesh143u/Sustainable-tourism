@@ -265,7 +265,7 @@ app.get("/api/products", async (req, res) => {
 });
 // Default route: serve the index page.
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile("index.html");
 });
 app.get("/favicon.ico", (req, res) => res.status(204).end());
 // Start server
