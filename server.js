@@ -262,7 +262,7 @@ app.get("/api/products", async (req, res) => {
   }
 });
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/login.html"));
+  res.sendFile(path.join(__dirname, "login.html"));
 });
 app.get("/favicon.ico", (req, res) => res.status(204).end());
 // Start server
