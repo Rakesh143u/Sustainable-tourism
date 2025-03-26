@@ -38,20 +38,29 @@ app.use(express.json()); // Parses JSON data
 // const upload = multer({ storage });
 
 // PostgreSQL
-const db = new pg.Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'Sustainabe tourism',
-  password: 'Rakesh@123',
-  port: 5432
+// Load environment variables from .env file using ES modules syntax
+import dotenv from 'dotenv';
+dotenv.config();
+
+import pkg from 'pg';
+const { Client } = pkg;
+
+const db = new Client({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
-db.connect((err) => {
+
+db.connect(err => {
   if (err) {
-    console.log("Error connecting to PostgreSQL", err);
+    console.error('Connection error:', err.stack);
   } else {
-    console.log("Connected to PostgreSQL");
+    console.log('Connected to PostgreSQL');
   }
 });
+
 
 // Routes
 app.get("/", (req, res) => {
