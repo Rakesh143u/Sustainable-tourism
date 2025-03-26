@@ -44,13 +44,13 @@ app.use(express.json()); // Parses JSON data
 
 const { Client } = pg;
 // Check if DATABASE_URL is defined; if not, log a warning.
-if (!process.env.DATABASE_URL) {
+if (!process.env.DB_URL) {
   console.error(
     "DATABASE_URL is undefined. Please set this variable in your Railway project settings."
   );
 }
 const db = new Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DB_URL,
   ssl:
     process.env.NODE_ENV === "production"
       ? { rejectUnauthorized: false }
@@ -69,9 +69,7 @@ db.connect(err => {
 
 
 // Routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/login.html"));
-});
+
 app.get("/explore", (req, res) => {
   res.sendFile(path.join(__dirname, "/explore.html"));
 });
@@ -263,9 +261,8 @@ app.get("/api/products", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-// Default route: serve the index page.
 app.get("/", (req, res) => {
-  res.sendFile("index.html");
+  res.sendFile(path.join(__dirname, "/login.html"));
 });
 app.get("/favicon.ico", (req, res) => res.status(204).end());
 // Start server
