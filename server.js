@@ -266,10 +266,10 @@ app.get("/", (req, res) => {
 });
 app.get("/favicon.ico", (req, res) => res.status(204).end());
 // Start server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
-// Route to fetch all products from the "products" table.
+// app.listen(port, () => {
+//   console.log(`Server running at http://localhost:${port}`);
+// });
+// // Route to fetch all products from the "products" table.
 // app.get("/api/products", async (req, res) => {
 //   try {
 //     const result = await db.query("SELECT * FROM products ORDER BY id DESC");
@@ -280,3 +280,7 @@ app.listen(port, () => {
 //   }
 // });
 // Default route: serve the index page.
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
